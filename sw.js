@@ -2,6 +2,7 @@ var CACHE_NAME = 'cache-v1';
 var filesToCache = [
   '/pwa',
   '/pwa/index.html',
+  '/pwa/weather.js',
 ];
 
 self.addEventListener('install', function(event) {
@@ -40,5 +41,32 @@ self.addEventListener('fetch', function(event) {
         return fetch(event.request);
     })
 
+  );
+});
+
+// PUSH 通知の受け取り
+self.addEventListener("push", function(event) {
+  console.log("Push Notification Recieved", event);
+  if (Notification.permission == "granted") {
+    event.waitUntil(
+      self.registration
+        .showNotification("受信しました", {
+          body: "お知らせです。",
+          icon: "iconV2.png"
+        })
+        .then(
+          function(showEvent) {},
+          function(error) {
+            console.log(error);
+          }
+        )
+    );
+  }
+});
+
+self.addEventListener("notificationclick", function(event) {
+  event.notification.close();
+  event.waitUntil(
+    console.log('notificationclick')
   );
 });

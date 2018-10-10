@@ -34,6 +34,10 @@
     } else {
       console.log('serviceWorker or PushManager Non-Supported')
     }
+
+    Notification.requestPermission(function(status) {
+      console.log("通知の許可:", status);//コンソールに許可されたかどうかを表示
+    });
   </script>
 </body>
 </html>
