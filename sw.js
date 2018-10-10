@@ -8,7 +8,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     //キャッシュの中に必要なリソースを格納する
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(filesToCache.map(url => new Request(url, {credentials: 'same-origin'})));
+      return cache.addAll(filesToCache);
     })
   );
 });
