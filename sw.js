@@ -1,7 +1,7 @@
 var CACHE_NAME = 'cache-v1';
 var filesToCache = [
-  './',
-  './index.html',
+  '/pwa',
+  '/pwa/index.html',
 ];
 
 self.addEventListener('install', function(event) {
