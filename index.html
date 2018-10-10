@@ -42,7 +42,7 @@
     }
     map.weather = function () {
       console.log('get weather data')
-      map.URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + map.CITY + ',jp&units=metric&APPID=' + map.API_KEY;
+      map.URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + map.CITY + ',jp&units=metric&APPID=' + map.API_KEY;
       var request = new XMLHttpRequest();
       // request.withCredentials = true;
       request.onreadystatechange = function() {
