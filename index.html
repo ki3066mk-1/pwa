@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>TipsNote : GitHub Pages Sample</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <title>Hello PWA</title>
+  </head>
 
 <body>
-<main>
-  <h1>GitHub Pages のサンプル！！！</h1>
-  <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
-</main>
+  <main>
+    <h1>Hello PWA</h1>
+  </main>
 
-<script>
-console.log('GitHub Pages Sample');
-</script>
+  <script>
+    console.log('Hello PWA.');
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(function() {
+        console.log('success serviceWorker');
+      }).catch(function(err) {
+        console.log('error serviceWorker：', err);
+      });
+    }
+  </script>
 </body>
 </html>
